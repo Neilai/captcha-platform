@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一起来打码</title>
+</head>
+<body>
+<form action="/captcha/" style="width:300px ;margin:auto auto; " method="post">
+    <img src="{{ path }}">
+    <p style="color:red;">{{ msg }}</p>
+    <p>输入验证码：</p>
+    <input type="text" name="captcha" style="margin-bottom: 10px"><br>
+    <input type="hidden" name="sessionId" value="{{ sessionId }}" >
+    <input type="hidden" name="timeStamp" value="{{ timeStamp }}" >
+    <input type="hidden" name="cnt" value="{{ cnt }}" >
+    <button type="submit"> 提交</button>
+     <p>已成功打码{{cnt}}次</p>
+    {% csrf_token %}
+</form>
+</body>
+</html>
